@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список автомобилей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: lightcyan;
+        }
+        table {
+            width: 100%;
+            background-color: rgba(224, 231, 255, 0.55);
+        }
+        thead {
+            background-color: #4cbbf3;
+            font-size: 26px;
+            text-align: center;
+        }
+        th:hover {
+            background-color: lightgray;
+            cursor: auto;
+        }
+        tbody {
+            font-size: 24px;
+        }
+        tbody tr td {
+            border-right: 1px solid darkorchid;
+            border-left: 1px solid darkorchid;
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #173667;
+            text-align: center;
+        }
+        button {
+            margin-top: 25px;
+            background-color: cornflowerblue;
+            color: white;
+            padding: 6px 12px;
+            font-size: 17px;
+            border-radius: 10px;
+            border: none;
+        }
+        button:hover {
+            background-color: darkslateblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>Марка</th>
+            <th>Год выпуска</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+                <tr>
+{#                    <td>{{ car.car_brand }}</td>#}
+                    <td><a href="/car/car_detail/{{ car.id }}">{{ car.car_brand }}</a></td>
+                    <td>{{ car.year_production }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button onclick="history.back()">назад</button>
+</body>
+</html>
